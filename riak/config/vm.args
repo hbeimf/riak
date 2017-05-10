@@ -1,0 +1,6 @@
+-sname riak
+
+-setcookie riak_cookie
+
++K true
++A30
