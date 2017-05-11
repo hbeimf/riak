@@ -40,6 +40,17 @@ t1() ->
         [{map, {modfun, my_map, mapfun},undefined, true}]).
 
 
+t2() ->
+    {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key1">>, [{1369052639, 123.3}, {1369052628, 3.3}])),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key2">>, [{1369052640, 456.3}, {1369052638, 5.3}])),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key3">>, [{1369052650, 789.3}, {1369052658, 7.3}])),
+
+    riakc_pb_socket:mapred(
+        Pid, <<"bucket2">>,
+        [{map, {modfun, my_map, mapfun},undefined, true}]).
+
+
 
 
 % ubuntu 上将map函数模块部属到riak　node 上
