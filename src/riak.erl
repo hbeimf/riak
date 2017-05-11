@@ -42,13 +42,14 @@ t1() ->
 
 t2() ->
     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key1">>, [{1369052639, 123.3}, {1369052628, 3.3}])),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key2">>, [{1369052640, 456.3}, {1369052638, 5.3}])),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket2">>, <<"key3">>, [{1369052650, 789.3}, {1369052658, 7.3}])),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key1">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key2">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key3">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
 
     riakc_pb_socket:mapred(
         Pid, <<"bucket2">>,
         [{map, {modfun, my_map, mapfun},undefined, true}]).
+
 
 
 
@@ -60,6 +61,9 @@ t2() ->
 % /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/riak_kv_mapreduce.beam
 
 % sudo cp ./_build/default/lib/riak/ebin/my_map.beam /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/
+
+% sudo cp ./mapred_src/my_map.beam /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/
+
 
 % ll /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/my_map.beam
 
