@@ -8,17 +8,17 @@
 
 test() ->
     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
-    Mine = riakc_obj:new(<<"people">>, <<"mine">>, ["eggs", "bacon"]),
-    Yours = riakc_obj:new(<<"people">>, <<"yours">>, ["bread", "bacon"]),
+    Mine = riakc_obj:new(<<"bucket1">>, <<"mine">>, ["eggs", "bacon"]),
+    Yours = riakc_obj:new(<<"bucket1">>, <<"yours">>, ["bread", "bacon"]),
     riakc_pb_socket:put(Pid, Mine),
     riakc_pb_socket:put(Pid, Yours),
 
     % riakc_pb_socket:mapred(
-    %     Pid, <<"people">>,
+    %     Pid, <<"bucket1">>,
     %     [{map, {qfun, fun(Obj, _, _) -> [Obj] end}, none, true}]).
 
     riakc_pb_socket:mapred(
-        Pid, <<"people">>,
+        Pid, <<"bucket1">>,
         [{map, {modfun, riak_kv_mapreduce, map_object_value},undefined, true}]).
 
 
@@ -28,17 +28,17 @@ map_test(Obj, _, _) ->
 
 t1() ->
     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
-    Mine = riakc_obj:new(<<"people">>, <<"mine">>, ["eggs", "bacon"]),
-    Yours = riakc_obj:new(<<"people">>, <<"yours">>, ["bread", "bacon"]),
+    Mine = riakc_obj:new(<<"bucket1">>, <<"mine">>, ["eggs", "bacon"]),
+    Yours = riakc_obj:new(<<"bucket1">>, <<"yours">>, ["bread", "bacon"]),
     riakc_pb_socket:put(Pid, Mine),
     riakc_pb_socket:put(Pid, Yours),
 
     % riakc_pb_socket:mapred(
-    %     Pid, <<"people">>,
+    %     Pid, <<"bucket1">>,
     %     [{map, {qfun, fun(Obj, _, _) -> [Obj] end}, none, true}]).
 
     riakc_pb_socket:mapred(
-        Pid, <<"people">>,
+        Pid, <<"bucket1">>,
         [{map, {modfun, my_map, mapfun},undefined, true}]).
 
 
