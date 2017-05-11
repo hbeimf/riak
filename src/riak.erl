@@ -47,7 +47,7 @@ t2() ->
     riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key3">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
 
     riakc_pb_socket:mapred(
-        Pid, <<"bucket2">>,
+        Pid, <<"bucket3">>,
         [{map, {modfun, my_map, mapfun},undefined, true}]).
 
 
