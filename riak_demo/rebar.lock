@@ -5,7 +5,7 @@
   3},
  {<<"riak">>,
   {git,"https://github.com/hbeimf/riak.git",
-       {ref,"9f5de4950db2f2654de1bde2c51f754d8dd2f7e9"}},
+       {ref,"4abe5a8f26be8ea79a79278d2f694258340cb200"}},
   0},
  {<<"riak_pb">>,
   {git,"https://github.com/basho/riak_pb",

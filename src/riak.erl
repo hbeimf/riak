@@ -52,6 +52,9 @@ t2() ->
 
 
 
+% {ok,[{0, R}]} = riak:t2().
+
+
 
 
 % ubuntu 上将map函数模块部属到riak　node 上
