@@ -1,6 +1,6 @@
--sname riak
+-name riak_test@127.0.0.1
 
--setcookie riak_cookie
+-setcookie riak
 
 +K true
 +A30
