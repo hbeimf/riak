@@ -39,8 +39,17 @@ t1() ->
 
     riakc_pb_socket:mapred(
         Pid, <<"people">>,
-        [{map, {modfun, riak, map_test},undefined, true}]).
+        [{map, {modfun, my_map, mapfun},undefined, true}]).
 
 
 
 
+% ubuntu 上将map函数模块部属到riak　node 上
+% /usr/lib/riak/lib
+% sudo riak console
+% code:which(riak_kv_mapreduce).
+% /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/riak_kv_mapreduce.beam
+
+% sudo cp ./_build/default/lib/riak/ebin/my_map.beam /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/
+
+% ll /usr/lib/riak/lib/riak_kv-2.1.7-0-gbd8e312/ebin/my_map.beam
