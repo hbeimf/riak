@@ -42,12 +42,12 @@ t1() ->
 
 t2() ->
     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key1">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key2">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
-    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket3">>, <<"key3">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket5">>, <<"key1">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket5">>, <<"key2">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
+    riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket5">>, <<"key3">>, term_to_binary([{1369052639, 123.3}, {1369052628, 3.3}]))),
 
     riakc_pb_socket:mapred(
-        Pid, <<"bucket3">>,
+        Pid, <<"bucket5">>,
         [{map, {modfun, my_map, mapfun},undefined, true}]).
 
 
