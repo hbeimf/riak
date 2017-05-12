@@ -31,5 +31,3 @@ riak_2.2.3-1_amd64.deb
     # apt-get remove riak
  启动riak后，可以看到riak进程。
 
-
-cp /web/riak/riak_demo/_build/default/lib/riak/mapred_src/my_map.beam /web/riak-2.2.3/lib/riak_kv-2.1.7-0-gbd8e312/ebin/
