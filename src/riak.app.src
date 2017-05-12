@@ -5,8 +5,7 @@
   {mod, { riak_app, []}},
   {applications,
    [kernel,
-    stdlib,
-    sync
+    stdlib
    ]},
   {env,[]},
   {modules, []},
