@@ -62,9 +62,38 @@ t3() ->
         [{map, {modfun, go, map_fun_demo},undefined, true}]).
 
 
+ % riakc_pb_socket:list_buckets(Pid).
 
-% {ok,[{0, R}]} = riak:t2().
 
+% s1() ->
+%     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
+
+%     riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket8">>, <<"key1">>, <<"egg">>)),
+%     riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket8">>, <<"key2">>, <<"eggs">>)),
+%     riakc_pb_socket:put(Pid, riakc_obj:new(<<"bucket8">>, <<"key3">>, <<"eggxx">>)),
+
+%     % riakc_pb_socket:create_search_index(Pid, <<"bucket8">>),
+
+%     riakc_pb_socket:create_search_index(Pid, <<"bucket8">>, <<"_yz_default">>, []),
+
+%     riakc_pb_socket:search(Pid,<<"bucket8">>, list_to_binary("<<\"eggxx\">>:<<\"bread\">>"),[],5000).
+
+    % riakc_pb_socket:search(Pid,<<"bucket8">>, <<"xx">>).
+
+
+%     https://docs.basho.com/riak/kv/2.2.3/developing/usage/search/#automatic-fields
+
+% {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087).
+% riakc_pb_socket:create_search_index(Pid, <<"famous">>).
+
+% 1> {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087).
+% {ok,<0.128.0>}
+% 2> riakc_pb_socket:create_search_index(Pid, <<"famous">>).
+% ok
+% 3> riakc_pb_socket:set_search_index(Pid, <<"cats">>, <<"famous">>).
+% ok
+% 4> {ok, Results} = riakc_pb_socket:search(Pid, <<"famous">>, <<"name_s:Lion*">>).
+% {ok,{search_results,[],0.0,0}}
 
 
 
