@@ -31,3 +31,8 @@ riak_2.2.3-1_amd64.deb
     # apt-get remove riak
  启动riak后，可以看到riak进程。
 
+
+列出所有的桶:
+
+    {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087).
+    riakc_pb_socket:list_buckets(Pid).
