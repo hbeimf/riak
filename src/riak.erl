@@ -8,6 +8,29 @@
 % https://github.com/basho/riak
 % https://github.com/basho/riak-erlang-client
 
+list_buckets() ->
+    {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
+    Buckets = riakc_pb_socket:list_buckets(Pid),
+    io:format("buckets: ~n ~p~n~n", [Buckets]),
+    ok.
+
+list_keys(Bucket) ->
+    {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
+    Keys = riakc_pb_socket:list_keys(Pid, Bucket),
+    io:format("buckets: ~n ~p~n~n", [Keys]),
+    ok.
+
+
+create_demo_bucket() ->
+    {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
+    Mine = riakc_obj:new(<<"bucket1">>, <<"mine">>, ["eggs", "bacon"]),
+    Yours = riakc_obj:new(<<"bucket1">>, <<"yours">>, ["bread", "bacon"]),
+    riakc_pb_socket:put(Pid, Mine),
+    riakc_pb_socket:put(Pid, Yours),
+    ok.
+
+
+
 test() ->
     {ok, Pid} = riakc_pb_socket:start_link("127.0.0.1", 8087),
     Mine = riakc_obj:new(<<"bucket1">>, <<"mine">>, ["eggs", "bacon"]),
