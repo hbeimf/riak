@@ -161,22 +161,22 @@ SCRIPTING COMMANDS
 
 $ rebar3 shell
 
-===> Verifying dependencies...
-===> Compiling riak
-Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:4:4] [async-threads:0] [hipe] [kernel-poll:false]
+    ===> Verifying dependencies...
+    ===> Compiling riak
+    Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:4:4] [async-threads:0] [hipe] [kernel-poll:false]
 
-Eshell V7.3  (abort with ^G)
-1> riak:list_buckets().
-buckets:
- {ok,[<<"bucket1">>]}
+    Eshell V7.3  (abort with ^G)
+    1> riak:list_buckets().
+    buckets:
+     {ok,[<<"bucket1">>]}
 
-ok
-2>
-2> riak:list_keys(<<"bucket1">>).
-buckets:
- {ok,[<<"mine">>,<<"yours">>]}
+    ok
+    2>
+    2> riak:list_keys(<<"bucket1">>).
+    buckets:
+     {ok,[<<"mine">>,<<"yours">>]}
 
-ok
+    ok
 
 ======================================================================
 
