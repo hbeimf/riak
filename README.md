@@ -14,7 +14,7 @@ http://www.cnblogs.com/marsprj/p/4551576.html
 3. 配置riak（配置文件/etc/riak/riak.conf）
     # cd /etc/riak
     打开riak.conf文件
-    # vi /erc/riak/riak.conf
+    # vi /etc/riak/riak.conf
     执行命令
     %s/127.0.0.1/192.168.111.151
     将127.0.0.1替换为本机的IP地址（192.168.111.151）
@@ -153,7 +153,7 @@ SCRIPTING COMMANDS
 
     # sudo riak attach
 
-安装个　map　函数到节点，　查看节点某些属性用这个挺方便，
+安装个　map reduce　函数到节点，　查看节点某些属性用这个挺方便，
 
 
 =========================================================================
