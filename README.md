@@ -180,6 +180,23 @@ $ rebar3 shell
 
 ======================================================================
 
+$ sudo riak-admin help
+
+    Usage: riak-admin { cluster | join | leave | backup | restore | test |
+                    reip | js-reload | erl-reload | wait-for-service |
+                    ringready | transfers | force-remove | down |
+                    cluster-info | member-status | ring-status | vnode-status |
+                    aae-status | diag | stat | status | transfer-limit | reformat-indexes |
+                    top [-interval N] [-sort reductions|memory|msg_q] [-lines N] |
+                    downgrade-objects | security | bucket-type | repair-2i |
+                    search | services | ensemble-status | handoff | set |
+                    timezone | show | describe }
+
+
+加入集群
+
+    $riak-admin cluster join dev1@127.0.0.1
+
 
 
 
